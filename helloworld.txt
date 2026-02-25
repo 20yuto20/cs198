@@ -1,3 +1,0 @@
-Hello World!
-I'm excited to learn full stack development in this decal.
-Looking forward to building cool projects!
