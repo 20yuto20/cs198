@@ -29,7 +29,7 @@ const question2 = () => {
   const todoListUl = document.getElementById("todo-list");
 
   addTodoButton.addEventListener("click", () => {
-    if (taskName.value !== "") {
+    if (taskName.value.trim() !== "") {
       const li = document.createElement("li");
       li.textContent = taskName.value;
       todoListUl.append(li);
