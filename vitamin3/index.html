@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pencil Point Perfection: Vihan's Favorite Pencil Sharpeners</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" type="text/javascript"></script>
+    <title>Vitamin 3: CSS Layout</title>
   </head>
   <body>
-    <div id="sidebar">
-      <button id="sidebar-button">›</button>
-      <nav>
-        <h2>Menu</h2>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div id="main-content">
-      <h1>Pencil Point Perfection</h1>
-
-      <main>
-        <section>
-          <h2>Latest Posts</h2>
-          <ul id="nav-links">
-            <li><a href="#">Prismacolor Premier Pencil Sharpener</a></li>
-            <li><a href="#">Staedtler Mars 501 Pencil Sharpener</a></li>
-            <li><a href="#">Carl Angel-5 Pencil Sharpener</a></li>
+    <aside id="sidebar" data-testid="sidebar">
+      <div>
+        <div>
+          <button id="sidebar-button" data-testid="sidebar-button">›</button>
+        </div>
+        <div>
+          <h3>Pencil Sharpeners</h3>
+          <ul>
+            <li><a>Prisma Premier</a></li>
+            <li><a>Staedtler Mars 501</a></li>
+            <li><a>Carl Angel-5</a></li>
           </ul>
-        </section>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <h1>Pencil Point Perfection</h1>
+      <h2>Vihan's Favorite Pencil Sharpeners Ranked</h2>
 
-        <section>
-          <h2>About the Blog</h2>
-          <p>
-            Join us on this pointedly delightful journey as we explore the
-            quirkiest and coolest pencil sharpeners ever created. Whether you're a
-            nobody, or someone who appreciates the joy of sharpening pencils,
-            you're in for a sharp treat.
+      <div class="exercises">
+        <div class="exercise exercise-1">
+          <div>
+            <label for="task-name">Task Name</label>
+            <input
+              type="text"
+              id="task-name"
+              name="task-name"
+              placeholder="Pick up Trash"
+            />
+          </div>
+          <button id="add-todo" data-testid="add-todo">Add Todo</button>
+          <ul id="todo-list">
+            <li>Do homework</li>
+            <li>Go to gym</li>
+          </ul>
+        </div>
+        <div class="exercise exercise-2">
+          <div>
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Taylor"
+            />
+          </div>
+          <div>
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Swift"
+            />
+          </div>
+          <p id="message" data-testid="message">
+            Type your name to see a message!
           </p>
-        </section>
-
-        <!-- Question 2: TODO List -->
-        <section>
-          <h2>My Sharpener Wishlist</h2>
-          <input type="text" id="task-name" placeholder="Add a sharpener..." />
-          <button id="add-todo">Add</button>
-          <ul id="todo-list"></ul>
-        </section>
-
-        <!-- Question 3: Greeter -->
-        <section>
-          <h2>Welcome!</h2>
-          <label>First Name: <input type="text" id="first-name" /></label>
-          <label>Last Name: <input type="text" id="last-name" /></label>
-          <p id="message">Hello !</p>
-        </section>
-      </main>
-
-      <footer>
-        <p>&copy; 2023 Pencil Point Perfection</p>
-      </footer>
-    </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

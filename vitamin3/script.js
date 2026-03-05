@@ -1,48 +1,80 @@
+/**
+ * Question 1
+ */
 const question1 = () => {
+  const sidebarButton = document.getElementById("sidebar-button");
   const sidebar = document.getElementById("sidebar");
-  const button = document.getElementById("sidebar-button");
 
-  button.addEventListener("click", () => {
-    sidebar.classList.toggle("opened");
-    if (sidebar.classList.contains("opened")) {
-      button.textContent = "‹";
+  sidebarButton.addEventListener("click", () => {
+    const sidebarIsOpen = sidebar.classList.contains("opened");
+
+    if (sidebarIsOpen) {
+      // Close the sidebar
+      sidebar.classList.remove("opened");
+      sidebarButton.textContent = "›";
     } else {
-      button.textContent = "›";
+      // Open the sidebar
+      sidebar.classList.add("opened");
+      sidebarButton.textContent = "‹";
     }
   });
 };
 
+/**
+ * Question 2
+ */
 const question2 = () => {
-  const addButton = document.getElementById("add-todo");
-  const input = document.getElementById("task-name");
-  const list = document.getElementById("todo-list");
+  const taskName = document.getElementById("task-name");
+  const addTodoButton = document.getElementById("add-todo");
+  const todoListUl = document.getElementById("todo-list");
 
-  addButton.addEventListener("click", () => {
-    const taskName = input.value;
-    if (taskName !== "") {
+  addTodoButton.addEventListener("click", () => {
+    if (taskName.value !== "") {
       const li = document.createElement("li");
-      li.textContent = taskName;
-      list.append(li);
-      input.value = "";
+      li.textContent = taskName.value;
+      todoListUl.append(li);
+      taskName.value = "";
     }
   });
 };
 
+/**
+ * Question 3
+ */
 const question3 = () => {
-  const firstName = document.getElementById("first-name");
-  const lastName = document.getElementById("last-name");
+  const firstNameInput = document.getElementById("first-name");
+  const lastNameInput = document.getElementById("last-name");
   const message = document.getElementById("message");
 
   const updateMessage = () => {
-    message.textContent = `Hello ${firstName.value} ${lastName.value}!`;
+    message.textContent = `Hello ${firstNameInput.value} ${lastNameInput.value}!`;
   };
 
-  firstName.addEventListener("input", updateMessage);
-  lastName.addEventListener("input", updateMessage);
+  firstNameInput.addEventListener("input", updateMessage);
+  lastNameInput.addEventListener("input", updateMessage);
 };
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  question1();
-  question2();
-  question3();
+/**
+ * We need to wait for the HTML file to fully load before running
+ * our JavaScript, otherwise it won't be able to operate on the HTML
+ * since it hasn't loaded.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    question1();
+  } catch (e) {
+    console.error(e);
+  }
+
+  try {
+    question2();
+  } catch (e) {
+    console.error(e);
+  }
+
+  try {
+    question3();
+  } catch (e) {
+    console.error(e);
+  }
 });
