@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yuto Kohata's projects and contact form" />
+  <meta name="author" content="Yuto Kohata" />
+  <title>Projects - Yuto Kohata</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <nav>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <button id="theme-toggle">Dark Mode</button>
+  </nav>
+
+  <main>
+    <section id="projects">
+      <h2>Projects & Experience</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Project Ceres</h3>
+          <p>An algorithmic trading system built for CBOT corn futures, developed to support my strategies as an
+            individual investor.</p>
+          <ul>
+            <li>Algorithmic Trading</li>
+            <li>Financial Modeling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>EpiNu</h3>
+          <p>An application aimed at improving nutrition for pregnant women in the DRC through advanced image analysis.
+          </p>
+          <ul>
+            <li>YOLO11</li>
+            <li>Computer Vision</li>
+            <li>Healthcare AI</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Medical LLM Evaluation</h3>
+          <p>Built a robust evaluation system for a medical Large Language Model during a competition at Matsuo-Iwasawa
+            Lab.</p>
+          <ul>
+            <li>LLMs</li>
+            <li>System Evaluation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Real Estate AI (estie)</h3>
+          <p>Developed an AI solution to structure and process complex real estate data during my SWE internship.</p>
+          <ul>
+            <li>Software Engineering</li>
+            <li>Data Structuring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="aspirations">
+      <h2>Career Aspirations</h2>
+      <p>
+        I aspire to apply my background in computer science to tackle complex, real-world challenges. I am especially
+        interested in:
+      </p>
+      <ul>
+        <li>Machine Learning and AI Engineering</li>
+        <li>Software Engineering and Data Science</li>
+        <li>Public Service and Leadership (e.g., Officer Candidate School)</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out!</p>
+      <form id="contact-form">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-message"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Yuto Kohata. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
