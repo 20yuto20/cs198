@@ -1,0 +1,21 @@
+# Node
+node_modules/
+dist/
+
+# Database
+server/data.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
