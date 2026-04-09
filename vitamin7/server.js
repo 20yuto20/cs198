@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: 'f4z8sb6',
     database: 'company_db'
-});
+})
 
 // MySQL Connection Verification
 function verifyMySQLConnection() {
@@ -28,16 +28,16 @@ function verifyMySQLConnection() {
 // ============ MONGODB CONNECTION ============
 // TODO: Connect to MongoDB using mongoose.connect()
 // Your connection string should point to localhost and the companyDB database
-mongoose.connect('mongodb://localhost:27017/companyDB');
+mongoose.connect('mongodb://localhost:27017/companyDB')
 
 // TODO: Create a Mongoose Schema for projects with name (String) and budget (Number)
 const ProjectSchema = new mongoose.Schema({
     name: String,
     budget: Number
-});
+})
 
 // TODO: Create a Mongoose Model called 'Project' using the schema
-const ProjectModel = mongoose.model('Project', ProjectSchema);
+const ProjectModel = mongoose.model('Project', ProjectSchema)
 
 // MongoDB Connection Verification
 mongoose.connection.on('connected', () => {
@@ -57,24 +57,24 @@ app.use(express.json());
 // TODO: GET all projects from MongoDB
 // Use ProjectModel.find({}) and return the results as JSON using .json()
 app.get('/projects', async (req, res) => {
-    const projects = await ProjectModel.find({});
-    res.json(projects);
+    const projects = await ProjectModel.find({})
+    res.json(projects)
 });
 
 // TODO: POST a new project to MongoDB
 // Create a new ProjectModel with req.body, save it, and return with status 201
 app.post('/projects', async (req, res) => {
-    const newProject = new ProjectModel(req.body);
-    await newProject.save();
-    res.status(201).json(newProject);
+    const project = new ProjectModel(req.body)
+    await project.save()
+    res.status(201).json(project)
 });
 
 // TODO: DELETE a project from MongoDB by id
 // Use req.params.id and ProjectModel.findByIdAndDelete()
 // Return status 200 on success
 app.delete('/projects/:id', async (req, res) => {
-    await ProjectModel.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: 'Project deleted successfully' });
+    await ProjectModel.findByIdAndDelete(req.params.id)
+    res.status(200).json({ message: 'Project deleted' })
 });
 
 // ------ MYSQL ENDPOINTS ------
@@ -88,10 +88,7 @@ app.delete('/projects/:id', async (req, res) => {
 // Return the results as JSON using .json()
 app.get('/employees', function (req, res) {
     connection.query('SELECT * FROM employees', function (err, results) {
-        if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-        }
+        if (err) throw err;
         res.json(results);
     });
 });
@@ -102,10 +99,7 @@ app.get('/employees', function (req, res) {
 app.post('/employees', function (req, res) {
     const { name, position, salary } = req.body;
     connection.query('INSERT INTO employees (name, position, salary) VALUES (?, ?, ?)', [name, position, salary], function (err, results) {
-        if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-        }
+        if (err) throw err;
         res.status(201).json({ id: results.insertId });
     });
 });
@@ -115,11 +109,8 @@ app.post('/employees', function (req, res) {
 // Return status 200 on success
 app.delete('/employees/:id', function (req, res) {
     connection.query('DELETE FROM employees WHERE id = ?', [req.params.id], function (err, results) {
-        if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-        }
-        res.status(200).json({ message: 'Employee deleted successfully' });
+        if (err) throw err;
+        res.status(200).json({ message: 'Employee deleted' });
     });
 });
 
